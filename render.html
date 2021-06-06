@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <style>
+   body{
+       background-color:rgb(230, 230, 230);
+   }
+   canvas{
+     background-color: rgb(255, 255, 255);
+   } 
+    </style>
+</head>
+<body>
+   <canvas></canvas>
+   
+   
+   <script src="grafix.js"></script>
+   <script src="physics.js"></script>
+    <script>
+
+
+
+
+
+
+
+
+    for(let i=0;i<3000;i++){
+        new Circle(1.7,Math.floor(Math.random()*window.innerWidth),Math.floor(Math.random()*window.innerHeight),Math.floor(Math.random()*50),Math.floor(Math.random()*50)); 
+    }
+     function phy(){
+         for(let i=0;i<world.length;i++){
+             world[i].update();
+         }
+     }
+     function bind(){
+        for(let i=0;i<world.length;i++){
+             world[i].draw();
+         }
+     }
+     function render(){
+         requestAnimationFrame(render);
+         cc.fillStyle='rgba(255,255,255,0.25)';
+         cc.fillRect(0,0,window.innerWidth,window.innerHeight);
+         phy();
+         bind();
+     }
+     render();
+    </script>
+</body>
+</html>

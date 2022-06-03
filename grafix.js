@@ -2,9 +2,11 @@ let can=document.querySelector('canvas');
 let cc=can.getContext('2d');
 can.width=window.innerWidth;
 can.height=window.innerHeight;
+
+
 function draw_circle(radius=0,x=0,y=0,color="blue"){
     cc.beginPath();
-    cc.arc(x,y,radius,0,Math.PI*2);
+    cc.arc(x,y,radius/2,0,Math.PI*2);
     cc.fillStyle=color;
     cc.fill();
 }

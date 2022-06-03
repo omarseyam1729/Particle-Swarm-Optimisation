@@ -22,9 +22,13 @@
 
 
 
-
-
-    for(let i=0;i<3000;i++){
+   let N=prompt('Enter the Number of particles');
+   N=parseInt(N);
+   let expression=prompt("Enter a valid function to minimize e.g (400-x)**2+(300-y)**2 In case of multiplication use * e.g 3*x+4*y and NOT 3x+4y");
+   function getval(x,y){
+    return eval(expression);
+} 
+   for(let i=0;i<N;i++){
         new Circle(1.7,Math.floor(Math.random()*window.innerWidth),Math.floor(Math.random()*window.innerHeight),Math.floor(Math.random()*50),Math.floor(Math.random()*50)); 
     }
      function phy(){
@@ -39,6 +43,8 @@
      }
      function render(){
          requestAnimationFrame(render);
+         cc.font = "20px Arial";
+         cc.fillText("  gbest  = "+gbest+"  gbestx =   "+gbestx+"   gbesty =   "+gbesty, 10, 50);
          cc.fillStyle='rgba(255,255,255,0.25)';
          cc.fillRect(0,0,window.innerWidth,window.innerHeight);
          phy();
